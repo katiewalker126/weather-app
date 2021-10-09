@@ -83,3 +83,13 @@ let month = months[now.getMonth()];
 
 let h3 = document.querySelector("h3");
 h3.innerHTML = `${day} ${date} ${month}, ${hours}:${minutes} GMT`;
+
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  let fahrenheitTemperature = (temperature.innerHTML * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);

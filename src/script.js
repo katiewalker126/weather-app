@@ -12,16 +12,27 @@ function search(event) {
 }
 
 function showWeather(response) {
+  let headerImage = document.querySelector("#header-image");
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
   celsiusTemperature = response.data.main.temp;
   document.querySelector("h2").innerHTML = response.data.name;
+  headerImage.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   document.querySelector("#weather-description").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
+  );
+  document.querySelector("#maximum-temp").innerHTML = Math.round(
+    response.data.main.temp_max
+  );
+  document.querySelector("#minimum-temp").innerHTML = Math.round(
+    response.data.main.temp_min
   );
 }
 

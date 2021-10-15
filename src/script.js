@@ -18,6 +18,9 @@ function showWeather(response) {
   );
   celsiusTemperature = response.data.main.temp;
   document.querySelector("h2").innerHTML = response.data.name;
+  document.querySelector("#date").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
   headerImage.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -34,11 +37,22 @@ function showWeather(response) {
   document.querySelector("#minimum-temp").innerHTML = Math.round(
     response.data.main.temp_min
   );
+  getForecast(response.data.coord);
 }
 
-function showForecast() {
-  let forecast = document.querySelector("#forecast");
-  let forecastDays = [
+function formatDate(timestamp) {
+  let now = new Date();
+  let date = now.getDate();
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -46,24 +60,71 @@ function showForecast() {
     "Friday",
     "Saturday",
   ];
+  let day = days[now.getDay()];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[now.getMonth()];
+  return `${day} ${date} ${month}, ${hours}:${minutes} GMT`;
+}
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return day;
+}
+
+function getForecast(coordinates) {
+  let units = "metric";
+  let apiKey = "159ab5e75e6ed3b8cb370b2d499a9313";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=${units}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecast);
+}
+
+function showForecast(response) {
+  let dailyForecast = response.data.daily;
+  let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-
-  forecastDays.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-    <div class="forecast-day">${day}</div>
+  dailyForecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+    <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
     <div class="forecast-image">
-      <img src="images/sunny-animated.svg" alt="sun-image" />
+      <img src="http://openweathermap.org/img/wn/${
+        forecastDay.weather[0].icon
+      }@2x.png" />
     </div>
     <div class="forecast-temperature">
-      18°<span class="forecast-weather-unit">C</span>
+      ${Math.round(
+        forecastDay.temp.day
+      )}°<span class="forecast-weather-unit">C</span>
     </div>
     <div class="forecast-description">Sunny</div>
     </div>`;
+    }
   });
-
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;
 }
@@ -104,45 +165,6 @@ form.addEventListener("submit", search);
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentPosition);
 
-let now = new Date();
-let date = now.getDate();
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let month = months[now.getMonth()];
-
-let h3 = document.querySelector("h3");
-h3.innerHTML = `${day} ${date} ${month}, ${hours}:${minutes} GMT`;
-
 let celsiusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
@@ -152,4 +174,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 defaultSearch("London");
-showForecast();

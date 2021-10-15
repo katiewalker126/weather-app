@@ -36,6 +36,38 @@ function showWeather(response) {
   );
 }
 
+function showForecast() {
+  let forecast = document.querySelector("#forecast");
+  let forecastDays = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let forecastHTML = `<div class="row">`;
+
+  forecastDays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+    <div class="forecast-day">${day}</div>
+    <div class="forecast-image">
+      <img src="images/sunny-animated.svg" alt="sun-image" />
+    </div>
+    <div class="forecast-temperature">
+      18°<span class="forecast-weather-unit">C</span>
+    </div>
+    <div class="forecast-description">Sunny</div>
+    </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
 function getCurrentPosition(event) {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
@@ -120,3 +152,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 defaultSearch("London");
+showForecast();

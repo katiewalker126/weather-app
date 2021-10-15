@@ -34,104 +34,52 @@
           <input type="submit" value="Search" id="search-button" />
           <input type="submit" value="Current" id="current-location-button" />
         </form>
-        <div class="row">
-          <div class="col-7">
-            <h1>
-              <span class="header-weather-temp" id="temperature"></span>
-              <span class="header-weather-unit"
-                >°<a href="#" id="celsius-link" class="active">C</a> |°<a
-                  href="#"
-                  id="fahrenheit-link"
-                  >F</a
-                ></span
-              >
-            </h1>
-            <div id="city">
-              <h2></h2>
-            </div>
-            <h3>GMT</h3>
-            <div class="header-image">
-              <img src="" alt="header-image" width="120" id="header-image" />
-              <div id="weather-description"><p>Partly cloudy</p></div>
-            </div>
-          </div>
-          <div class="col-5">
-            <ul>
-              <li>
-                Humidity:
-                <span id="humidity"></span>%
-              </li>
-              <li>
-                Wind:
-                <span id="wind"></span>
-                m/s
-              </li>
-              <li>
-                Maximum:
-                <span id="maximum-temp"></span>°C
-              </li>
-              <li>
-                Minimum:
-                <span id="minimum-temp"></span>°C
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="forecast-day">Monday</div>
-            <div class="forecast-image">
-              <img src="images/sunny-animated.svg" alt="sun-image" />
-            </div>
-            <div class="forecast-temperature">
-              18°<span class="forecast-weather-unit">C</span>
-            </div>
-            <div class="forecast-description">Sunny</div>
-          </div>
-          <div class="col">
-            <div class="forecast-day">Tuesday</div>
-            <div class="forecast-image">
-              <img src="images/cloudy-animated.svg" alt="cloudy-image" />
-            </div>
-            <div class="forecast-temperature">
-              19°<span class="forecast-weather-unit">C</span>
-            </div>
-            <div class="forecast-description">Cloudy</div>
-          </div>
-          <div class="col">
-            <div class="forecast-day">Wednesday</div>
-            <div class="forecast-image">
-              <img
-                src="images/partly-cloudy-animated.svg"
-                alt="partly-cloudy-image"
-              />
-              <div class="forecast-temperature">
-                19°<span class="forecast-weather-unit">C</span>
+        <div class="overview">
+          <div class="row">
+            <div class="col-7">
+              <h1>
+                <span class="header-weather-temp" id="temperature"></span>
+                <span class="header-weather-unit"
+                  >°<a href="#" id="celsius-link" class="active">C</a> |°<a
+                    href="#"
+                    id="fahrenheit-link"
+                    >F</a
+                  ></span
+                >
+              </h1>
+              <div id="city">
+                <h2></h2>
+              </div>
+              <h3>GMT</h3>
+              <div class="header-image">
+                <img src="" alt="header-image" width="120" id="header-image" />
+                <div id="weather-description"><p>Partly cloudy</p></div>
               </div>
             </div>
-            <div class="forecast-description">Partly cloudy</div>
-          </div>
-          <div class="col">
-            <div class="forecast-day">Thursday</div>
-            <div class="forecast-image">
-              <img src="images/showers-animated.svg" alt="showers-image" />
+            <div class="col-5">
+              <ul>
+                <li>
+                  Humidity:
+                  <span id="humidity"></span>%
+                </li>
+                <li>
+                  Wind:
+                  <span id="wind"></span>
+                  m/s
+                </li>
+                <li>
+                  Maximum:
+                  <span id="maximum-temp"></span>°C
+                </li>
+                <li>
+                  Minimum:
+                  <span id="minimum-temp"></span>°C
+                </li>
+              </ul>
             </div>
-            <div class="forecast-temperature">
-              18°<span class="forecast-weather-unit">C</span>
-            </div>
-            <div class="forecast-description">Showers</div>
-          </div>
-          <div class="col">
-            <div class="forecast-day">Friday</div>
-            <div class="forecast-image">
-              <img src="images/sunny-animated.svg" alt="sun-image" />
-            </div>
-            <div class="forecast-temperature">
-              21°<span class="forecast-weather-unit">C</span>
-            </div>
-            <div class="forecast-description">Sunny</div>
           </div>
         </div>
+        <div class="weather-forecast" id="forecast"></div>
         <footer>
           <div class="footer-signature">
             <a

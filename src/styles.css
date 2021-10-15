@@ -54,6 +54,11 @@ form {
   transition: all 200ms ease-in-out;
 }
 
+.overview .row .col-7,
+.col-5 {
+  height: 300px;
+}
+
 h1 {
   font-size: 80px;
   font-weight: 500;

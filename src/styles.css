@@ -72,23 +72,6 @@ h1 {
   right: 20px;
 }
 
-.active {
-  color: black;
-  cursor: default;
-  text-decoration: none;
-}
-
-.active:hover {
-  text-decoration: none;
-  color: black;
-}
-
-#celsius-link,
-#fahrenheit-link {
-  color: #6d15f2;
-  text-decoration: none;
-}
-
 h2 {
   font-size: 45px;
   font-weight: 600;

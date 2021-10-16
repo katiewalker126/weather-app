@@ -39,37 +39,36 @@ form {
   transition: all 200ms ease-in-out;
 }
 
-.overview .row .col-7,
-.col-5 {
+.overview {
   height: 300px;
 }
 
-h1 {
+#main-temperature {
   font-size: 80px;
   font-weight: 500;
 }
 
-.header-weather-unit {
+.main-temperature-unit {
   font-size: 36px;
   font-weight: 600;
   position: relative;
   bottom: 32px;
-  right: 20px;
+  right: 8px;
 }
 
-h2 {
+#city {
   font-size: 45px;
   font-weight: 600;
   padding-bottom: 10px;
   text-transform: capitalizeFirstLetter;
 }
 
-h3 {
+#date {
   font-size: 20px;
   font-weight: 500;
 }
 
-.header-image {
+.main-image {
   position: relative;
   bottom: 170px;
   left: 270px;

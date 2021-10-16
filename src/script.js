@@ -12,8 +12,8 @@ function search(event) {
 }
 
 function showWeather(response) {
-  let headerImage = document.querySelector("#header-image");
-  document.querySelector("#temperature").innerHTML = Math.round(
+  let mainImage = document.querySelector("#main-image");
+  document.querySelector("#main-temperature").innerHTML = Math.round(
     response.data.main.temp
   );
   celsiusTemperature = response.data.main.temp;
@@ -21,7 +21,7 @@ function showWeather(response) {
   document.querySelector("#date").innerHTML = formatDate(
     response.data.dt * 1000
   );
-  headerImage.setAttribute(
+  mainImage.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );

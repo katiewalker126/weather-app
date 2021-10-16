@@ -28,7 +28,6 @@
             type="search"
             placeholder="Enter a town or city"
             autocomplete="off"
-            size="60"
             id="search-text-input"
           />
           <input type="submit" value="Search" id="search-button" />
@@ -37,16 +36,14 @@
           <div class="row">
             <div class="col-7">
               <h1>
-                <span class="header-weather-temp" id="temperature"></span>
-                <span class="header-weather-unit">°C</span>
+                <span class="main-temperature" id="main-temperature"></span>
+                <span class="main-temperature-unit">°C</span>
               </h1>
-              <div id="city">
-                <h2></h2>
-              </div>
+              <h2 id="city"></h2>
               <h3 id="date">GMT</h3>
-              <div class="header-image">
-                <img src="" alt="header-image" width="120" id="header-image" />
-                <div id="weather-description"><p>Partly cloudy</p></div>
+              <div class="main-image">
+                <img src="" alt="main-image" width="120" id="main-image" />
+                <div id="weather-description"><p></p></div>
               </div>
             </div>
             <div class="col-5">

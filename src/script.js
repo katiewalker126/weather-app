@@ -81,15 +81,7 @@ function formatDate(timestamp) {
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[date.getDay()];
   return day;
 }
@@ -129,23 +121,7 @@ function showForecast(response) {
   forecast.innerHTML = forecastHTML;
 }
 
-function getCurrentPosition(event) {
-  navigator.geolocation.getCurrentPosition(showPosition);
-}
-
-function showPosition(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let units = "metric";
-  let apiKey = "159ab5e75e6ed3b8cb370b2d499a9313";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
-  axios.get(apiUrl).then(showWeather);
-}
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
-
-let currentButton = document.querySelector("#current-location-button");
-currentButton.addEventListener("click", getCurrentPosition);
 
 defaultSearch("London");

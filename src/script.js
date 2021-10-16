@@ -98,22 +98,22 @@ function showForecast(response) {
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   dailyForecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 5) {
       forecastHTML =
         forecastHTML +
-        `<div class="col-2">
+        `<div class="col">
     <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
     <div class="forecast-image">
       <img src="https://openweathermap.org/img/wn/${
         forecastDay.weather[0].icon
       }@2x.png" />
     </div>
-    <div class="forecast-temperature">
-      ${Math.round(
-        forecastDay.temp.day
-      )}°<span class="forecast-weather-unit">C</span>
+    <div class="forecast-max-temperature">
+      ${Math.round(forecastDay.temp.max)}°
+      <span class="forecast-min-temperature">${Math.round(
+        forecastDay.temp.min
+      )}°
     </div>
-    <div class="forecast-description">Sunny</div>
     </div>`;
     }
   });

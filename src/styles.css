@@ -97,14 +97,11 @@ ul {
 }
 
 .forecast-day,
-.forecast-temperature,
-.forecast-description {
+.forecast-max-temperature,
+.forecast-min-temperature {
   font-weight: 500;
   line-height: 2;
   text-align: center;
-}
-
-.forecast-day {
   font-size: 16px;
 }
 
@@ -112,16 +109,8 @@ ul {
   text-align: center;
 }
 
-.forecast-temperature,
-.forecast-description {
-  font-size: 14px;
-}
-
-.forecast-weather-unit {
-  font-size: 10px;
-  font-weight: 500;
-  position: relative;
-  bottom: 3px;
+.forecast-min-temperature {
+  opacity: 0.5;
 }
 
 .footer-signature,

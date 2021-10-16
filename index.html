@@ -34,40 +34,40 @@
         </form>
         <div class="overview">
           <div class="row">
-            <div class="col-7">
-              <h1>
-                <span class="main-temperature" id="main-temperature"></span>
-                <span class="main-temperature-unit">°C</span>
-              </h1>
-              <h2 id="city"></h2>
-              <h3 id="date">GMT</h3>
-              <div class="main-image">
-                <img src="" alt="main-image" width="120" id="main-image" />
-                <div id="weather-description"><p></p></div>
+            <div class="col">
+              <div class="clearfix main-weather">
+                <h1>
+                  <span class="main-temperature" id="main-temperature"></span>
+                  <span class="main-temperature-unit">°C</span>
+                </h1>
+                <div class="main-image">
+                  <img src="" alt="main-image" width="120" id="main-image" />
+                </div>
               </div>
             </div>
-            <div class="col-5">
+            <div class="col">
               <ul>
                 <li>
-                  Humidity:
-                  <span id="humidity"></span>%
+                  Forecast:
+                  <strong><span id="weather-description"></span></strong>
                 </li>
                 <li>
                   Wind:
-                  <span id="wind"></span>
-                  m/s
+                  <strong><span id="wind"></span> m/s</strong>
                 </li>
                 <li>
                   Maximum:
-                  <span id="maximum-temp"></span>°
+                  <strong><span id="maximum-temp"></span>°</strong>
                 </li>
                 <li>
                   Minimum:
-                  <span id="minimum-temp"></span>°
+                  <strong><span id="minimum-temp"></span>°</strong>
                 </li>
               </ul>
             </div>
           </div>
+          <h2 id="city"></h2>
+          <h3 id="date">GMT</h3>
         </div>
         <div class="weather-forecast" id="forecast"></div>
         <footer>

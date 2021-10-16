@@ -12,22 +12,20 @@ function search(event) {
 }
 
 function showWeather(response) {
-  let mainImage = document.querySelector("#main-image");
   document.querySelector("#main-temperature").innerHTML = Math.round(
     response.data.main.temp
   );
-  celsiusTemperature = response.data.main.temp;
-  document.querySelector("h2").innerHTML = response.data.name;
+  document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#date").innerHTML = formatDate(
     response.data.dt * 1000
   );
+  let mainImage = document.querySelector("#main-image");
   mainImage.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   document.querySelector("#weather-description").innerHTML =
-    response.data.weather[0].description;
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+    response.data.weather[0].main;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
@@ -106,7 +104,7 @@ function showForecast(response) {
     <div class="forecast-image">
       <img src="https://openweathermap.org/img/wn/${
         forecastDay.weather[0].icon
-      }@2x.png" />
+      }@2x.png" width="80" />
     </div>
     <div class="forecast-max-temperature">
       ${Math.round(forecastDay.temp.max)}°

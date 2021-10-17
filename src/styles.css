@@ -10,10 +10,9 @@ body {
   min-width: 700px;
   margin: 0 auto;
   border-radius: 8px;
-  position: relative;
 }
 
-form {
+#search-form {
   padding-bottom: 40px;
   font-size: 18px;
 }
@@ -45,6 +44,10 @@ form {
   height: 280px;
 }
 
+.row {
+  height: 110px;
+}
+
 #main-temperature {
   font-size: 80px;
   font-weight: 500;
@@ -66,10 +69,6 @@ form {
   float: left;
   bottom: 18px;
   right: -10px;
-}
-
-.row {
-  height: 110px;
 }
 
 ul {
